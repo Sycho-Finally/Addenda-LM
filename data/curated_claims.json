@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "curator": "rule-gate v1 (R1确定性/R2计分/R3准入/R4冲突)",
+    "n_raw": 17
+  },
+  "admitted": [
+    {
+      "q": "DeepSeek-V4.1-Flash 的正式发布日期是？",
+      "a": "2026年9月10日",
+      "admitted": true,
+      "score": 6,
+      "sources": [
+        "api-docs.deepseek.com",
+        "deepseek.com"
+      ],
+      "tiers": [
+        "official"
+      ]
+    },
+    {
+      "q": "字节跳动 Seedance 2.5 的正式发布日期是？",
+      "a": "2026年7月31日",
+      "admitted": true,
+      "score": 6,
+      "sources": [
+        "baike.baidu.com",
+        "seedance.tv",
+        "wikiwand.com"
+      ],
+      "tiers": [
+        "product",
+        "wiki"
+      ]
+    },
+    {
+      "q": "Qwen3-4B-Instruct-2507 的发布月份是？",
+      "a": "2025年7月",
+      "admitted": true,
+      "score": 3,
+      "sources": [
+        "aiappdex.com",
+        "blog.csdn.net",
+        "huggingface.co"
+      ],
+      "tiers": [
+        "blog",
+        "community",
+        "ugc"
+      ]
+    },
+    {
+      "q": "DeepSeek-V4-Flash 的总参数量是多少B(十亿参数)？",
+      "a": "284",
+      "admitted": true,
+      "score": 8,
+      "sources": [
+        "azure.microsoft.com",
+        "chinadaily.com.cn",
+        "nvidia.com"
+      ],
+      "tiers": [
+        "news",
+        "official"
+      ]
+    },
+    {
+      "q": "DeepSeek-V4-Flash-Vision-Exp 的发布日期是？",
+      "a": "2026年8月21日",
+      "admitted": true,
+      "score": 3,
+      "sources": [
+        "api-docs.deepseek.com"
+      ],
+      "tiers": [
+        "official"
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "q": "DeepSeek-V4-Flash-Vision-Exp 的发布日期是？",
+      "a": "2026年2月30日",
+      "source": "none",
+      "tier": "none",
+      "admitted": false,
+      "reject_reason": "R1 确定性拒绝: 日期不存在 (2026年2月30日)"
+    },
+    {
+      "q": "DeepSeek-V4.1-Flash 的正式发布日期是？",
+      "a": "2026年9月9日",
+      "source": "deepseek.ai",
+      "tier": "blog",
+      "admitted": false,
+      "reject_reason": "R4 冲突落选 (胜者: 2026年9月10日, 分差 5)"
+    },
+    {
+      "q": "字节跳动 Seedance 2.5 的正式发布日期是？",
+      "a": "2026年6月23日",
+      "source": "wireflow.ai",
+      "tier": "blog",
+      "admitted": false,
+      "reject_reason": "R4 冲突落选 (胜者: 2026年7月31日, 分差 5)"
+    },
+    {
+      "q": "Qwen3-4B-Instruct-2507 的发布月份是？",
+      "a": "2025年8月",
+      "source": "blog.csdn.net",
+      "tier": "ugc",
+      "admitted": false,
+      "reject_reason": "R4 冲突落选 (胜者: 2025年7月, 分差 2)"
+    },
+    {
+      "q": "DeepSeek-V4-Flash 的总参数量是多少B(十亿参数)？",
+      "a": "96",
+      "source": "none",
+      "tier": "none",
+      "admitted": false,
+      "reject_reason": "R4 冲突落选 (胜者: 284, 分差 8)"
+    }
+  ]
+}

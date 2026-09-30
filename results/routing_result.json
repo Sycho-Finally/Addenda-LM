@@ -1,0 +1,14 @@
+{
+  "route_errors": 0,
+  "tau": 0.25,
+  "sim_A_max": 0.2,
+  "sim_M1_min": 1.0,
+  "sim_M2_min": 1.0,
+  "B1_acc": 1.0,
+  "B2_acc": 1.0,
+  "A_drift_routed_mean": 0.0,
+  "A_drift_routed_bitexact": true,
+  "A_drift_forced_mean": -13.798444024560741,
+  "A_degraded_forced": 16,
+  "base_hash_unchanged": true
+}

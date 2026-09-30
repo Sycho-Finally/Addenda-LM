@@ -1,0 +1,9 @@
+{
+  "pipeline": "raw_web -> rule_gate -> anchored_training",
+  "n_admitted": 5,
+  "B_acc_before": 0.0,
+  "B_acc_after": 1.0,
+  "A_delta_mean": 0.20106704235076905,
+  "A_degraded": 1,
+  "base_hash_unchanged": true
+}

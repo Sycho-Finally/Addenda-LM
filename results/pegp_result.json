@@ -1,0 +1,27 @@
+{
+  "layers": [
+    6,
+    12,
+    18,
+    24,
+    30
+  ],
+  "r": 1024,
+  "params": 26214400,
+  "n_train": 64,
+  "base_unseen": 0.0,
+  "trained_seen": 0.984375,
+  "trained_unseen_exact": 0.3125,
+  "trained_unseen_perpos": 0.5405405405405406,
+  "delta_unseen": 0.3125,
+  "A_drift_mean": 5.302611343562603,
+  "A_drift_maxabs": 22.086798667907715,
+  "A_degraded": 6,
+  "ref_unconstrained": {
+    "unseen_exact": 0.375,
+    "unseen_perpos": 0.722,
+    "A_drift": 2.419,
+    "A_degraded": 6
+  },
+  "verdict": "CHECK"
+}

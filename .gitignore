@@ -1,0 +1,20 @@
+# 模型权重 (8GB, 通过 experiments/download_model.py 下载)
+model_cache/
+experiments/model_cache/
+*.safetensors
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# 运行输出 (results/ 内为已提交的本次实验记录; 重跑产生的新 JSON 落在运行目录)
+/*.json
+experiments/*.json
+!data/*.json
+
+# 系统文件
+.DS_Store
+Thumbs.db

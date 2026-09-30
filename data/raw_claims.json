@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "date": "2026-09-30",
+    "note": "raw 候选声明: 来自当日真实搜索结果, 含真实冲突(9月9日vs10日, 7月vs8月, 发布日vs首发展示日)与投毒(无源/坏日期). curator.py 按规则自动熟化."
+  },
+  "raw_claims": [
+    {"q": "DeepSeek-V4.1-Flash 的正式发布日期是？", "a": "2026年9月10日", "source": "api-docs.deepseek.com", "tier": "official"},
+    {"q": "DeepSeek-V4.1-Flash 的正式发布日期是？", "a": "2026年9月10日", "source": "deepseek.com", "tier": "official"},
+    {"q": "DeepSeek-V4.1-Flash 的正式发布日期是？", "a": "2026年9月9日", "source": "deepseek.ai", "tier": "blog"},
+
+    {"q": "字节跳动 Seedance 2.5 的正式发布日期是？", "a": "2026年7月31日", "source": "baike.baidu.com", "tier": "wiki"},
+    {"q": "字节跳动 Seedance 2.5 的正式发布日期是？", "a": "2026年7月31日", "source": "wikiwand.com", "tier": "wiki"},
+    {"q": "字节跳动 Seedance 2.5 的正式发布日期是？", "a": "2026年7月31日", "source": "seedance.tv", "tier": "product"},
+    {"q": "字节跳动 Seedance 2.5 的正式发布日期是？", "a": "2026年6月23日", "source": "wireflow.ai", "tier": "blog"},
+
+    {"q": "Qwen3-4B-Instruct-2507 的发布月份是？", "a": "2025年7月", "source": "huggingface.co", "tier": "community"},
+    {"q": "Qwen3-4B-Instruct-2507 的发布月份是？", "a": "2025年7月", "source": "blog.csdn.net", "tier": "ugc"},
+    {"q": "Qwen3-4B-Instruct-2507 的发布月份是？", "a": "2025年7月", "source": "aiappdex.com", "tier": "blog"},
+    {"q": "Qwen3-4B-Instruct-2507 的发布月份是？", "a": "2025年8月", "source": "blog.csdn.net", "tier": "ugc"},
+
+    {"q": "DeepSeek-V4-Flash 的总参数量是多少B(十亿参数)？", "a": "284", "source": "chinadaily.com.cn", "tier": "news"},
+    {"q": "DeepSeek-V4-Flash 的总参数量是多少B(十亿参数)？", "a": "284", "source": "azure.microsoft.com", "tier": "official"},
+    {"q": "DeepSeek-V4-Flash 的总参数量是多少B(十亿参数)？", "a": "284", "source": "nvidia.com", "tier": "official"},
+    {"q": "DeepSeek-V4-Flash 的总参数量是多少B(十亿参数)？", "a": "96", "source": "none", "tier": "none"},
+
+    {"q": "DeepSeek-V4-Flash-Vision-Exp 的发布日期是？", "a": "2026年8月21日", "source": "api-docs.deepseek.com", "tier": "official"},
+    {"q": "DeepSeek-V4-Flash-Vision-Exp 的发布日期是？", "a": "2026年2月30日", "source": "none", "tier": "none"}
+  ]
+}

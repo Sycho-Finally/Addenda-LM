@@ -1,0 +1,12 @@
+{
+  "logp_off": -5.915443682670594,
+  "logp_zero": -8.083316802978516,
+  "logp_trained": -7.555202770233154,
+  "drift_noise_mean": -2.1678731203079225,
+  "drift_noise_maxabs": 3.476447582244873,
+  "drift_semantic_mean": 0.5281140327453613,
+  "drift_semantic_maxabs": 1.0170960426330566,
+  "drift_total_mean": -1.639759087562561,
+  "noise_share": 0.8019732786230483,
+  "cipher_unseen_acc_8": 0.125
+}

@@ -1,0 +1,19 @@
+{
+  "gate_admitted": 6,
+  "gate_rejected": 4,
+  "V": {
+    "B_acc_before": 0.0,
+    "B_acc_after": 1.0,
+    "A_mean_before": -17.49174032211304,
+    "A_mean_after": -24.94657905995846,
+    "A_delta_mean": -7.454838737845421,
+    "A_degraded": 14
+  },
+  "P": {
+    "B_acc_before": 0.0,
+    "B_acc_after": 1.0,
+    "A_delta_mean": -5.3850125558674335,
+    "A_degraded": 14
+  },
+  "base_hash": "28ab9b2cebc0a035"
+}

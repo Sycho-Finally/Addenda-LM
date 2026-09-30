@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "date": "2026-09-30",
+    "curator": "agent-as-trusted-mediator (实网核证: WebSearch 多源佐证)",
+    "gate_rule": "admitted = 多源一致(>=2) 或 官方文档单源(高信任级); 孤证/与佐证矛盾 => 拒绝"
+  },
+  "claims": [
+    {"id": "V1", "q": "DeepSeek-V4.1-Flash 的正式发布日期是？", "a": "2026年9月10日",
+     "admitted": true, "sources": ["api-docs.deepseek.com changelog(官方)", "deepseek.com news(官方)", "deepseek.ai blog"],
+     "trust": "官方+多源", "note": "有第三方称9月9日发release notes, 以官方changelog日期为准"},
+    {"id": "V2", "q": "字节跳动 Seedance 2.5 的正式发布日期是？", "a": "2026年7月31日",
+     "admitted": true, "sources": ["百度百科", "Wikiwand(Wikipedia)", "seedance.tv"],
+     "trust": "多源一致", "note": "6月23日是FORCE大会首次展示, 7月31日是正式发布"},
+    {"id": "V3", "q": "DeepSeek-V4-Flash-Vision-Exp 的发布日期是？", "a": "2026年8月21日",
+     "admitted": true, "sources": ["api-docs.deepseek.com changelog(官方)"],
+     "trust": "官方单源(高信任级)", "note": "官方文档一手信息"},
+    {"id": "V4", "q": "DeepSeek-V4-Pro 的 GA 版本上线日期是？", "a": "2026年8月13日",
+     "admitted": true, "sources": ["api-docs.deepseek.com changelog(官方)"],
+     "trust": "官方单源(高信任级)", "note": "官方文档一手信息"},
+    {"id": "V5", "q": "DeepSeek-V4-Flash 的总参数量是多少B(十亿参数)？", "a": "284",
+     "admitted": true, "sources": ["中国日报", "Azure AI catalog", "NVIDIA NGC", "腾讯ima wiki"],
+     "trust": "多源一致(4+)", "note": "激活参数13B亦多源一致"},
+    {"id": "V6", "q": "Qwen3-4B-Instruct-2507 的发布月份是？", "a": "2025年7月",
+     "admitted": true, "sources": ["HF model card(GGUF)", "CSDN", "aiappdex"],
+     "trust": "多源一致+命名规则", "note": "有一条CSDN称8月开源, 孤例被多数派+命名规则(2507=25年07月)压过"},
+    {"id": "P1", "q": "DeepSeek-V4.1-Flash 的正式发布日期是？", "a": "2026年3月5日",
+     "admitted": false, "sources": [], "trust": "无佐证",
+     "note": "投毒对照: 与多源佐证矛盾, 门拒绝"},
+    {"id": "P2", "q": "字节跳动 Seedance 2.5 的正式发布日期是？", "a": "2025年12月1日",
+     "admitted": false, "sources": [], "trust": "无佐证",
+     "note": "投毒对照: 与多源佐证矛盾, 门拒绝"},
+    {"id": "P3", "q": "DeepSeek-V4-Flash 的总参数量是多少B(十亿参数)？", "a": "96",
+     "admitted": false, "sources": [], "trust": "无佐证",
+     "note": "投毒对照: 与4+源矛盾, 门拒绝"},
+    {"id": "P4", "q": "DeepSeek-V4-Flash-Vision-Exp 的发布日期是？", "a": "2026年5月14日",
+     "admitted": false, "sources": [], "trust": "无佐证",
+     "note": "投毒对照: 与官方changelog矛盾, 门拒绝"}
+  ]
+}

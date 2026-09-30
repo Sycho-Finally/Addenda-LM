@@ -1,0 +1,23 @@
+{
+  "layers": [
+    6,
+    12,
+    18,
+    24,
+    30
+  ],
+  "params": 6567680,
+  "base_seen": 0.0,
+  "base_unseen": 0.0,
+  "trained_seen": 1.0,
+  "trained_unseen_exact": 0.0,
+  "trained_unseen_perpos": 0.12195121951219512,
+  "delta_unseen": 0.0,
+  "A_drift_global": 3.8874188527464866,
+  "A_degraded": 6,
+  "verdict": "BOUNDARY-DEEPER-THAN-DEPTH",
+  "single_mid_ref": {
+    "seen": 1.0,
+    "unseen": 0.0
+  }
+}

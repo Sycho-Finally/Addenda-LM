@@ -1,0 +1,10 @@
+# PyTorch 必须按 CUDA 版本从 pytorch 官方源安装（见 README「安装」）：
+#   pip install torch==2.11.0+cu128 --index-url https://download.pytorch.org/whl/cu128
+transformers>=5.17.0
+accelerate>=1.15.0
+bitsandbytes>=0.50.2
+safetensors>=0.4.0
+tokenizers>=0.20.0
+huggingface_hub>=0.30.0
+numpy>=2.0.0
+requests>=2.31.0
