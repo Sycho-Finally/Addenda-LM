@@ -18,6 +18,7 @@ LAYER_SET = [6, 12, 18, 24, 30]
 N_TRAIN = int(os.environ.get("N_TRAIN", "16"))
 STEPS = int(os.environ.get("STEPS", "500"))
 TAG = os.environ.get("TAG", f"n{N_TRAIN}s{STEPS}")
+SEED_DATA = int(os.environ.get("SEED_DATA", "11"))
 
 from mem_continual_test import build_example, MemBranch, hash_base, TASK_A
 
@@ -110,7 +111,7 @@ def per_position_acc(tok, model, mh, numbers):
 
 
 def main():
-    rng = np.random.default_rng(11)      # 与 v2/v3 相同数字集
+    rng = np.random.default_rng(SEED_DATA)   # 数据种子可参数化(测试集固定不受影响)
     test_ns = gen_numbers(np.random.default_rng(999), 16)   # 固定测试集: 曲线各点共用
     train_ns = [n for n in gen_numbers(rng, N_TRAIN) if n not in set(test_ns)]
     assert not (set(train_ns) & set(test_ns))
