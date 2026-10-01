@@ -1,7 +1,7 @@
 #!/bin/bash
 # 阶段一运行器: E1 多种子 / E3 LoRA 对照 / E5 双技能干扰 (顺序执行, 单卡串行)
 cd "C:/Users/30312/Desktop/仓库"
-PY="C:/Users/30312/.workbuddy/binaries/python/versions/3.13.12/python.exe"
+PY="C:/Users/30312/.workbuddy/binaries/python/envs/default/Scripts/python.exe"
 export HF_HUB_OFFLINE=1
 
 echo "=== E1 s101 n64 ==="
