@@ -40,78 +40,75 @@ def gen_answer(tok, model, q, max_new=12):
 
 @torch.no_grad()
 def measure(tok, model, numbers, use_adapter=True):
+    """use_adapter=True: LoRA 生效(默认前向); False: disable_adapter 临时关闭=纯基座."""
     acc = []
-    ctx = model.disable_adapter() if use_adapter else None
+    cm = torch.no_grad()
     if use_adapter:
-        with ctx:
-            for n in numbers:
-                acc.append(int(gen_answer(tok, model, P.Q(n)) == P.enc(n)))
-    else:
         for n in numbers:
             acc.append(int(gen_answer(tok, model, P.Q(n)) == P.enc(n)))
+    else:
+        with model.disable_adapter(), cm:
+            for n in numbers:
+                acc.append(int(gen_answer(tok, model, P.Q(n)) == P.enc(n)))
     return acc
 
 
 @torch.no_grad()
 def per_position_acc(tok, model, numbers, use_adapter=True):
     hits = tot = 0
-    ctx = model.disable_adapter() if use_adapter else None
     cm = torch.no_grad()
     if use_adapter:
-        with ctx, cm:
-            for n in numbers:
-                ids, _ = build_example(tok, P.Q(n), P.enc(n))
-                t = torch.tensor(ids[:-1]).unsqueeze(0).cuda()
-                lab = torch.tensor(ids[1:]).cuda()
-                logits = model(input_ids=t).logits[0]
-                ans_len = len(tok(P.enc(n), add_special_tokens=False).input_ids)
-                st_ = len(ids) - ans_len - 1
-                for j in range(ans_len):
-                    gold = int(lab[st_ + j].item())
-                    if gold != tok.convert_tokens_to_ids("<|im_end|>"):
-                        hits += int(int(logits[st_ + j].argmax().item()) == gold); tot += 1
+        ctx = None
     else:
-        for n in numbers:
-            ids, _ = build_example(tok, P.Q(n), P.enc(n))
-            t = torch.tensor(ids[:-1]).unsqueeze(0).cuda()
-            lab = torch.tensor(ids[1:]).cuda()
-            logits = model(input_ids=t).logits[0]
-            ans_len = len(tok(P.enc(n), add_special_tokens=False).input_ids)
-            st_ = len(ids) - ans_len - 1
-            for j in range(ans_len):
-                gold = int(lab[st_ + j].item())
-                if gold != tok.convert_tokens_to_ids("<|im_end|>"):
-                    hits += int(int(logits[st_ + j].argmax().item()) == gold); tot += 1
+        ctx = model.disable_adapter()
+    if ctx is not None:
+        with ctx, cm:
+            return _pp_inner(tok, model, numbers, hits, tot)
+    with cm:
+        return _pp_inner(tok, model, numbers, hits, tot)
+
+
+def _pp_inner(tok, model, numbers, hits, tot):
+    for n in numbers:
+        ids, _ = build_example(tok, P.Q(n), P.enc(n))
+        t = torch.tensor(ids[:-1]).unsqueeze(0).cuda()
+        lab = torch.tensor(ids[1:]).cuda()
+        logits = model(input_ids=t).logits[0]
+        ans_len = len(tok(P.enc(n), add_special_tokens=False).input_ids)
+        st_ = len(ids) - ans_len - 1
+        for j in range(ans_len):
+            gold = int(lab[st_ + j].item())
+            if gold != tok.convert_tokens_to_ids("<|im_end|>"):
+                hits += int(int(logits[st_ + j].argmax().item()) == gold); tot += 1
     return hits / max(1, tot)
 
 
 @torch.no_grad()
 def task_a_logp(tok, model, use_adapter=True):
     scores = []
-    ctx = model.disable_adapter() if use_adapter else None
     cm = torch.no_grad()
     if use_adapter:
-        with ctx, cm:
-            for q, a in TASK_A:
-                ids, _ = build_example(tok, q, a)
-                t = torch.tensor(ids[:-1]).unsqueeze(0).cuda()
-                lab = torch.tensor(ids[1:]).cuda()
-                logp = torch.log_softmax(model(input_ids=t).logits[0].float(), -1)
-                ans_len = len(tok(a, add_special_tokens=False).input_ids)
-                st_ = len(ids) - ans_len - 1
-                idx = torch.arange(st_, st_ + ans_len).cuda()
-                scores.append(float(logp[idx, lab[idx]].mean()))
+        ctx = None
     else:
-        with cm:
-            for q, a in TASK_A:
-                ids, _ = build_example(tok, q, a)
-                t = torch.tensor(ids[:-1]).unsqueeze(0).cuda()
-                lab = torch.tensor(ids[1:]).cuda()
-                logp = torch.log_softmax(model(input_ids=t).logits[0].float(), -1)
-                ans_len = len(tok(a, add_special_tokens=False).input_ids)
-                st_ = len(ids) - ans_len - 1
-                idx = torch.arange(st_, st_ + ans_len).cuda()
-                scores.append(float(logp[idx, lab[idx]].mean()))
+        ctx = model.disable_adapter()
+    if ctx is not None:
+        with ctx, cm:
+            return _ta_inner(tok, model)
+    with cm:
+        return _ta_inner(tok, model)
+
+
+def _ta_inner(tok, model):
+    scores = []
+    for q, a in TASK_A:
+        ids, _ = build_example(tok, q, a)
+        t = torch.tensor(ids[:-1]).unsqueeze(0).cuda()
+        lab = torch.tensor(ids[1:]).cuda()
+        logp = torch.log_softmax(model(input_ids=t).logits[0].float(), -1)
+        ans_len = len(tok(a, add_special_tokens=False).input_ids)
+        st_ = len(ids) - ans_len - 1
+        idx = torch.arange(st_, st_ + ans_len).cuda()
+        scores.append(float(logp[idx, lab[idx]].mean()))
     return scores
 
 

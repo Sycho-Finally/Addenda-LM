@@ -21,8 +21,8 @@ from mem_continual_test import build_example, hash_base, TASK_A
 import pegp_multilayer_test as P   # PBranch / gen_numbers
 
 KEY_A = P.KEY
-KEY_B = {"0": "N", "1": "L", "2": "Y", "3": "W", "4": "T",
-         "5": "U", "6": "F", "7": "R", "8": "O", "9": "P"}
+KEY_B = {int(k): v for k, v in {"0": "N", "1": "L", "2": "Y", "3": "W", "4": "T",
+         "5": "U", "6": "F", "7": "R", "8": "O", "9": "P"}.items()}
 
 
 def QA(n):
