@@ -1,0 +1,12 @@
+{
+  "model": "microsoft/Phi-3-mini-4k-instruct (跨厂商 #2)",
+  "base_hash": "a499c832bbadfa20",
+  "B_acc_before": 0.0,
+  "B_acc_after": 1.0,
+  "A_mean_logp_before": -7.6448,
+  "A_mean_logp_after": -5.6876,
+  "A_delta_mean": 1.9572,
+  "A_degraded_gt03": 4,
+  "base_hash_unchanged": true,
+  "note": "A 漂移方向向上(格式锐化), 与 Qwen3/SmolLM2 同现象; 数值由 stdout 指标补录"
+}

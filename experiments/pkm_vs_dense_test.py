@@ -18,9 +18,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 HERE = os.path.dirname(os.path.abspath(__file__))
 MODEL_DIR = os.path.join(HERE, "model_cache", "Qwen3-4B-Instruct-2507")
 LAYER_SET = [6, 12, 18, 24, 30]
-N_KEYS = 32          # 每组子键数 (全键空间 32×32=1024 槽)
-TOPK = 8             # 每半部分取 top-8 → 64 个候选对
-R = 256              # 查询/值瓶颈维度
+N_KEYS = int(os.environ.get('PKM_N_KEYS', '32'))    # 键空间粒度 (32→1024槽 / 128→16384槽)
+TOPK = int(os.environ.get('PKM_TOPK', '8'))
+R = int(os.environ.get('PKM_R', '256'))
+TAG = os.environ.get('PKM_TAG', '')
 
 from mem_continual_test import build_example, hash_base, TASK_A
 import pegp_multilayer_test as P   # gen_numbers / Q / enc / KEY
@@ -209,9 +210,9 @@ def main():
            "ref_dense_branch": {"unseen_exact": 0.375, "unseen_perpos": 0.722,
                                  "params": 6567680, "A_drift": 2.419, "A_degraded": 6},
            "base_hash_unchanged": h1 == "28ab9b2cebc0a035"}
-    with open(os.path.join(HERE, "pkm_vs_dense_result.json"), "w") as f:
+    with open(os.path.join(HERE, f"pkm_vs_dense_result{TAG}.json"), "w") as f:
         json.dump(res, f, indent=2, ensure_ascii=False)
-    print("结果写入 pkm_vs_dense_result.json", flush=True)
+    print(f"结果写入 pkm_vs_dense_result{TAG}.json", flush=True)
 
 
 if __name__ == "__main__":
