@@ -19,8 +19,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 # 判定: B 大幅上升 且 A 不动 => "不遗忘"从定义变成数据.
 # 范围声明: 只测行为层"additive 不遗忘", 不测路由/检索/多模块/闸门.
 # ---------------------------------------------------------------------------
-MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                         "model_cache", "Qwen3-4B-Instruct-2507")
+MODEL_DIR = os.environ.get("ADDENDA_MODEL_DIR",
+                           os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                        "model_cache", "Qwen3-4B-Instruct-2507"))
+OUT_TAG = os.environ.get("ADDENDA_TAG", "")
 
 TASK_A = [  # (问题, 金标答案)
     ("水的化学式是什么？只用最简式回答。", "H2O"),
@@ -213,7 +215,7 @@ def main():
            "mem_params": n_par, "verdict":
                "NO-FORGETTING CONFIRMED" if (h1 == h0 and abs(np.mean(da)) < 0.05 and b1_acc > b0_acc + 0.3)
                else "CHECK DETAILS"}
-    with open("mem_continual_result.json", "w") as f:
+    with open(f"mem_continual_result{OUT_TAG}.json", "w") as f:
         json.dump(res, f, indent=2, ensure_ascii=False)
     print("结果写入 mem_continual_result.json", flush=True)
 

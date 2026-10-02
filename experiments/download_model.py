@@ -2,16 +2,17 @@ import os, sys, time, requests
 
 # 兜底下载器: 绕过 huggingface_hub 的 Xet 路径(401), 直接 requests 流式拉
 # hf-mirror 的 resolve URL (实测 ~3.6MB/s, 支持 Range 断点续传).
-BASE = 'https://hf-mirror.com/Qwen/Qwen3-4B-Instruct-2507/resolve/main/'
+MODEL_ID = os.environ.get('ADDENDA_MODEL_ID', 'Qwen/Qwen3-4B-Instruct-2507')
+BASE = 'https://hf-mirror.com/%s/resolve/main/' % MODEL_ID
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                   'model_cache', 'Qwen3-4B-Instruct-2507')
+                   'model_cache', MODEL_ID.split('/')[-1])
 os.makedirs(OUT, exist_ok=True)
-files = [
-    'config.json', 'generation_config.json', 'model.safetensors.index.json',
-    'tokenizer.json', 'tokenizer_config.json', 'vocab.json', 'merges.txt',
-    'model-00001-of-00003.safetensors', 'model-00002-of-00003.safetensors',
-    'model-00003-of-00003.safetensors',
-]
+import json as _json
+api = _json.loads(requests.get('https://hf-mirror.com/api/models/' + MODEL_ID, timeout=60).text)
+_keep = ('.json', '.txt', '.safetensors', '.model')
+files = [sib['rfilename'] for sib in api.get('siblings', [])
+         if sib['rfilename'].endswith(_keep) and not sib['rfilename'].startswith('.')]
+print('files:', files, flush=True)
 for fn in files:
     path = os.path.join(OUT, fn)
     done = os.path.getsize(path) if os.path.exists(path) else 0

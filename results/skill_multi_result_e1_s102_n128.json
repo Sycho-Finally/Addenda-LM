@@ -1,0 +1,23 @@
+{
+  "layers": [
+    6,
+    12,
+    18,
+    24,
+    30
+  ],
+  "params": 6567680,
+  "base_seen": 0.0,
+  "base_unseen": 0.0,
+  "trained_seen": 0.9765625,
+  "trained_unseen_exact": 0.75,
+  "trained_unseen_perpos": 0.8918918918918919,
+  "delta_unseen": 0.75,
+  "A_drift_global": 4.103734730184078,
+  "A_degraded": 7,
+  "verdict": "CIRCUIT-INDUCED",
+  "single_mid_ref": {
+    "seen": 1.0,
+    "unseen": 0.0
+  }
+}

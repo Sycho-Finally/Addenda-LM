@@ -1,0 +1,12 @@
+{
+  "model": "HuggingFaceTB/SmolLM2-1.7B-Instruct (跨厂商)",
+  "base_hash": "4b29db96d66be727",
+  "B_acc_before": 0.0,
+  "B_acc_after": 1.0,
+  "A_mean_logp_before": -5.1273,
+  "A_mean_logp_after": -5.3232,
+  "A_delta_mean": -0.1959,
+  "A_items_abs_gt_03": 10,
+  "base_hash_unchanged": true,
+  "note": "结果 JSON 因脚本标签静默失配未自动落盘, 本文件由 stdout 指标补录; SmolLM2 中文基线弱, 逐条噪声相对更大但均值可控"
+}

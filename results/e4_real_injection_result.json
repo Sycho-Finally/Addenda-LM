@@ -1,0 +1,52 @@
+{
+  "n_facts": 5,
+  "base_hit_loose": 0.0,
+  "trained_hit_loose": 1.0,
+  "base_exact": 0.0,
+  "trained_exact": 1.0,
+  "A_drift_mean": 9.355664819479012,
+  "A_degraded": 4,
+  "base_hash_unchanged": true,
+  "per_fact": [
+    {
+      "q": "DeepSeek-V4.1-Flash 的正式发布日期是？",
+      "gold": "2026年9月10日",
+      "base_pred": "DeepSeek-V4.1-Flash的正式发布日期是？",
+      "trained_pred": "2026年9月10日",
+      "trained_loose_hit": 1,
+      "trained_exact": 1
+    },
+    {
+      "q": "字节跳动 Seedance 2.5 的正式发布日期是？",
+      "gold": "2026年7月31日",
+      "base_pred": "字Byte Byte，字节跳平台上的一个重要里程碑事件，通常",
+      "trained_pred": "2026年7月31日",
+      "trained_loose_hit": 1,
+      "trained_exact": 1
+    },
+    {
+      "q": "Qwen3-4B-Instruct-2507 的发布月份是？",
+      "gold": "2025年7月",
+      "base_pred": "根据最新的资料来看，是在202发布了一新的版本的",
+      "trained_pred": "2025年7月",
+      "trained_loose_hit": 1,
+      "trained_exact": 1
+    },
+    {
+      "q": "DeepSeek-V4-Flash 的总参数量是多少B(十亿参数)？",
+      "gold": "284",
+      "base_pred": "DeepSeek-V4 Flash model, typically refers to the model architecture and",
+      "trained_pred": "284",
+      "trained_loose_hit": 1,
+      "trained_exact": 1
+    },
+    {
+      "q": "DeepSeek-V4-Flash-Vision-Exp 的发布日期是？",
+      "gold": "2026年8月21日",
+      "base_pred": "DeepSeek-V4 Flash Vision-Exp 通常指的是一个特定的",
+      "trained_pred": "2026年8月21日",
+      "trained_loose_hit": 1,
+      "trained_exact": 1
+    }
+  ]
+}

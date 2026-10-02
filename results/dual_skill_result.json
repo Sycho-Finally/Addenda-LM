@@ -1,0 +1,10 @@
+{
+  "A_acc_routed": 1.0,
+  "B_acc_routed": 1.0,
+  "route_errors": 0,
+  "A_global_drift": 5.393849705159664,
+  "A_degraded": 7,
+  "B_global_drift": 3.8433435305953028,
+  "B_degraded": 6,
+  "base_hash_unchanged": true
+}

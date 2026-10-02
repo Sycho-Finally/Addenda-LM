@@ -1,0 +1,18 @@
+{
+  "method": "LoRA r=16 q/v (peft)",
+  "n_train": 64,
+  "base_seen": 0.0,
+  "base_unseen": 0.0,
+  "trained_seen": 1.0,
+  "trained_unseen_exact": 0.3125,
+  "trained_unseen_perpos": 0.7027027027027027,
+  "A_drift_mean": 6.404738724331219,
+  "A_drift_maxabs": 15.555364608764648,
+  "A_degraded": 0,
+  "ref_multilayer_branch": {
+    "unseen_exact": 0.375,
+    "unseen_perpos": 0.722,
+    "A_drift": 2.419,
+    "A_degraded": 6
+  }
+}
