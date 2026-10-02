@@ -1,0 +1,29 @@
+{
+  "form": "PKM product-key",
+  "layers": [
+    6,
+    12,
+    18,
+    24,
+    30
+  ],
+  "n_keys": 128,
+  "topk": 16,
+  "r": 256,
+  "params": 27688960,
+  "n_train": 64,
+  "steps": 800,
+  "trained_seen": 1.0,
+  "trained_unseen_exact": 0.0,
+  "trained_unseen_perpos": 0.10810810810810811,
+  "A_drift_mean": -0.44484651237726214,
+  "A_degraded": 12,
+  "ref_dense_branch": {
+    "unseen_exact": 0.375,
+    "unseen_perpos": 0.722,
+    "params": 6567680,
+    "A_drift": 2.419,
+    "A_degraded": 6
+  },
+  "base_hash_unchanged": true
+}

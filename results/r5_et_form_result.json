@@ -1,0 +1,20 @@
+{
+  "r1_cipher_n64": {
+    "n_train": 64,
+    "seen": 0.0,
+    "unseen_exact": 0.0
+  },
+  "r2_cipher_n500": {
+    "n_train": 499,
+    "seen": 0.0,
+    "unseen_exact": 0.0
+  },
+  "r3_arith_n500": {
+    "n_train": 500,
+    "test_hit": 0.86
+  },
+  "task_a_before": -12.61521462649107,
+  "task_a_after": -12.615214665234088,
+  "verdict": "ORTHOGONALITY-CONFIRMED (ET arith ✓ / cipher ✗)",
+  "trainable_params": 2560
+}
